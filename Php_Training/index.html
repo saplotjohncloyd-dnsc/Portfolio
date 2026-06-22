@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markglen Jamelo | Aspiring Information Systems Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark Mode Variables */
+        html.dark {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --text-dark: #f9fafb;
+            --text-light: #d1d5db;
+            --bg-light: #1f2937;
+            --white: #111827;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        html.dark nav {
+            background: rgba(17, 24, 39, 0.95);
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--text-light);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: rotate(20deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--white);
+            color: var(--text-dark);
+            padding: 2rem;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Geometric Background Elements */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            z-index: 0;
+        }
+
+        html.dark .hero::before {
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+        }
+
+        html.dark .hero::after {
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        @media (min-width: 769px) {
+            .hero-content {
+                text-align: left;
+            }
+
+            .hero-buttons {
+                justify-content: flex-start;
+            }
+
+            .social-links {
+                justify-content: flex-start;
+            }
+
+            .hero-decorative-line {
+                margin-left: 0;
+            }
+
+            .hero-content .tagline {
+                margin-left: 0;
+            }
+        }
+
+        .hero-content .greeting {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease 0.1s both;
+            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        /* Dynamic Rotating Text */
+        .title-wrapper {
+            display: inline-block;
+        }
+
+        .dynamic-text {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 700;
+            position: relative;
+            min-width: 250px;
+            text-align: left;
+        }
+
+        .dynamic-text span {
+            display: none;
+            animation: textRotate 0.5s ease-in-out;
+        }
+
+        .dynamic-text span.active {
+            display: inline-block;
+        }
+
+        @keyframes textRotate {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dynamic-text::after {
+            content: "|";
+            display: inline-block;
+            margin-left: 5px;
+            animation: blink 1s infinite;
+            color: var(--primary-color);
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .hero-content .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.4s both;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+            background-color: var(--secondary-color);
+        }
+
+        html.dark .btn-primary {
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        html.dark .btn-primary:hover {
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-light);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .social-links {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .hero-decorative-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            margin: 2rem auto;
+            border-radius: 2px;
+            animation: fadeInUp 1s ease 0.15s both;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        /* About Section - Vintage Gallery Style */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 180px);
+            gap: 1rem;
+            position: relative;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 3px solid #8b7355;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(139,115,85,0.1) 0%, rgba(74,60,49,0.3) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 12px 30px rgba(139, 115, 85, 0.4);
+            border-color: #a0826d;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(20%) contrast(1.1) brightness(0.95);
+            transition: filter 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            filter: sepia(10%) contrast(1.2) brightness(1);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(1) .gallery-placeholder {
+            background: linear-gradient(135deg, #4a3c31 0%, #6b5444 50%, #8b7355 100%);
+        }
+
+        .gallery-item:nth-child(2) .gallery-placeholder {
+            background: linear-gradient(135deg, #5a4a3a 0%, #7d6b5a 100%);
+        }
+
+        .gallery-item:nth-child(3) .gallery-placeholder {
+            background: linear-gradient(135deg, #3d322a 0%, #5c4d3f 100%);
+        }
+
+        .gallery-item:nth-child(4) .gallery-placeholder {
+            background: linear-gradient(135deg, #6b5948 0%, #8b7565 100%);
+        }
+
+        html.dark .gallery-item {
+            border-color: #6b5444;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        html.dark .gallery-item:hover {
+            border-color: #8b7355;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item i {
+            color: var(--primary-color);
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: var(--bg-light);
+            transition: background-color 0.3s ease;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid transparent;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .skill-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .skill-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .skill-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-image-wrapper {
+            width: 100%;
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(37, 99, 235, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-overlay i {
+            color: white;
+            font-size: 2.5rem;
+            transform: scale(0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-card:hover .project-overlay i {
+            transform: scale(1);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Education Section */
+        #education {
+            background-color: var(--bg-light);
+            transition: background-color 0.3s ease;
+        }
+
+        .education-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .institution {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .year {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Experience Section */
+        #experience {
+            background-color: var(--bg-light);
+            transition: background-color 0.3s ease;
+        }
+
+        .experience-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 2px;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .experience-content {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .experience-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .experience-left {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .experience-right {
+            grid-column: 3;
+            text-align: left;
+        }
+
+        .experience-icon {
+            grid-column: 2;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .experience-header {
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .experience-company {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .experience-duration {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-duration i {
+            color: var(--primary-color);
+        }
+
+        .experience-location {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .experience-location i {
+            color: var(--primary-color);
+        }
+
+        .experience-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-responsibilities {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-responsibilities li {
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .experience-responsibilities li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .experience-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .experience-skill-tag {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--primary-color);
+        }
+
+        /* Certificates Section */
+        #certificates {
+            background-color: var(--bg-light);
+            transition: background-color 0.3s ease;
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .certificate-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 0;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            z-index: 2;
+        }
+
+        .certificate-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .certificate-image-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .certificate-card:hover .certificate-image {
+            transform: scale(1.05);
+        }
+
+        .certificate-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(37, 99, 235, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .certificate-overlay i {
+            color: white;
+            font-size: 3rem;
+            transform: scale(0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-card:hover .certificate-overlay {
+            opacity: 1;
+        }
+
+        .certificate-card:hover .certificate-overlay i {
+            transform: scale(1);
+        }
+
+        .certificate-content {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .certificate-content h3 {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .certificate-issuer {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .certificate-date {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .certificate-date i {
+            color: var(--primary-color);
+        }
+
+        .certificate-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .certificate-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: var(--bg-light);
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-content .title {
+                font-size: 1.5rem;
+            }
+
+        /* Dynamic Rotating Text */
+        .title-wrapper {
+            display: inline-block;
+        }
+
+        .dynamic-text {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 700;
+            position: relative;
+            min-width: 250px;
+            text-align: left;
+        }
+
+        .dynamic-text span {
+            display: none;
+            animation: textRotate 0.5s ease-in-out;
+        }
+
+        .dynamic-text span.active {
+            display: inline-block;
+        }
+
+        @keyframes textRotate {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dynamic-text::after {
+            content: "|";
+            display: inline-block;
+            margin-left: 5px;
+            animation: blink 1s infinite;
+            color: var(--primary-color);
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero::before {
+                width: 300px;
+                height: 300px;
+                top: -100px;
+                right: -100px;
+            }
+
+            .hero::after {
+                width: 250px;
+                height: 250px;
+                bottom: -100px;
+                left: -100px;
+            }
+
+            .hero-content .greeting {
+                font-size: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .title {
+                font-size: 1.3rem;
+            }
+
+        /* Dynamic Rotating Text */
+        .title-wrapper {
+            display: inline-block;
+        }
+
+        .dynamic-text {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 700;
+            position: relative;
+            min-width: 250px;
+            text-align: left;
+        }
+
+        .dynamic-text span {
+            display: none;
+            animation: textRotate 0.5s ease-in-out;
+        }
+
+        .dynamic-text span.active {
+            display: inline-block;
+        }
+
+        @keyframes textRotate {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dynamic-text::after {
+            content: "|";
+            display: inline-block;
+            margin-left: 5px;
+            animation: blink 1s infinite;
+            color: var(--primary-color);
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+            .hero-content .tagline {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image-gallery {
+                grid-template-rows: repeat(3, 150px);
+                margin-bottom: 2rem;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-row: span 1;
+                grid-column: span 2;
+            }
+
+            .about-info {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .skill-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .skill-icon {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .experience-timeline::before {
+                left: 40px;
+            }
+
+            .experience-item {
+                grid-template-columns: 80px 1fr;
+                gap: 1.5rem;
+            }
+
+            .experience-icon {
+                grid-column: 1;
+                grid-row: 1;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .experience-content {
+                grid-column: 2;
+                grid-row: 1;
+                text-align: left;
+            }
+
+            .experience-left,
+            .experience-right {
+                grid-column: 2;
+                text-align: left;
+            }
+
+            .experience-duration,
+            .experience-location {
+                justify-content: flex-start;
+            }
+
+            .certificates-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .certificate-image-container {
+                height: 250px;
+            }
+
+            .certificate-content {
+                padding: 1.5rem;
+            }
+
+            .certificate-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .certificate-description {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">MJ</a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="greeting">Hello, I'm</p>
+            <h1>Markglen Jamelo</h1>
+            <div class="hero-decorative-line"></div>
+            <p class="title">Aspiring <span class="dynamic-text"><span class="active">Information Systems Professional</span><span>Full-Stack Developer</span><span>Problem Solver</span><span>Tech Enthusiast</span><span>Database Architect</span></span></p>
+            <p class="tagline">I craft elegant digital solutions that bridge innovation and functionality. Specializing in full-stack development and database architecture, I transform complex challenges into seamless user experiences.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Get In Touch
+                </a>
+                <a href="#projects" class="btn btn-secondary">
+                    <i class="fas fa-briefcase"></i> View My Work
+                </a>
+            </div>
+            <div class="social-links">
+                <a href="mailto:jamelo.markglen@dnsc.edu.ph" title="Email" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" title="GitHub" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" title="LinkedIn" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-image-gallery">
+                <div class="gallery-item">
+                    <img src="b.jpg" alt="Markglen Jamelo - Profile">
+                </div>
+                <div class="gallery-item">
+                    <img src="m.jpg" alt="Markglen Jamelo - In Uniform">
+                </div>
+                <div class="gallery-item">
+                    <img src="n.jpg" alt="Sunset View">
+                </div>
+                <div class="gallery-item">
+                    <img src="vc.jpg" alt="Markglen Jamelo - Portrait">
+                </div>
+            </div>
+            <div class="about-text">
+                <p>I'm a passionate technologist and aspiring Information Systems professional pursuing my Bachelor's degree at Davao del Norte State College. With a strong foundation in web development and database architecture, I transform complex challenges into elegant, user-centric solutions.</p>
+                <p>My expertise spans the full development spectrum—from crafting responsive front-end interfaces with modern frameworks to architecting robust back-end systems with PHP and MySQL. I thrive in environments where innovation meets practicality, and I'm committed to writing clean, maintainable code that stands the test of time.</p>
+                <p>Beyond academics, I'm an active learner who stays at the forefront of emerging technologies. Whether it's exploring new development tools, optimizing database performance, or collaborating on challenging projects, I approach every opportunity as a chance to grow and create meaningful impact. My goal is to leverage technology to build solutions that not only meet requirements but exceed expectations.</p>
+                <div class="about-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Carmen, Davao del Norte, Philippines</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>jamelo.markglen@dnsc.edu.ph</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>09638387313</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>BSIS Student</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+            <!-- PHP -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-php"></i>
+                </div>
+                <h3>PHP</h3>
+                <p>Server-Side Logic</p>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-js"></i>
+                </div>
+                <h3>JavaScript</h3>
+                <p>Interactive Web Apps</p>
+            </div>
+
+            <!-- HTML5 -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-html5"></i>
+                </div>
+                <h3>HTML5</h3>
+                <p>Web Structure</p>
+            </div>
+
+            <!-- CSS3 -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-css3-alt"></i>
+                </div>
+                <h3>CSS3</h3>
+                <p>Modern Styling</p>
+            </div>
+
+            <!-- React -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-react"></i>
+                </div>
+                <h3>React</h3>
+                <p>UI Architecture</p>
+            </div>
+
+            <!-- Bootstrap -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-bootstrap"></i>
+                </div>
+                <h3>Bootstrap</h3>
+                <p>Responsive Framework</p>
+            </div>
+
+            <!-- Laravel -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-laravel"></i>
+                </div>
+                <h3>Laravel</h3>
+                <p>PHP Framework</p>
+            </div>
+
+            <!-- MySQL -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>MySQL</h3>
+                <p>Relational Database</p>
+            </div>
+
+            <!-- Git -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-git-alt"></i>
+                </div>
+                <h3>Git</h3>
+                <p>Version Control</p>
+            </div>
+
+            <!-- GitHub -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-github"></i>
+                </div>
+                <h3>GitHub</h3>
+                <p>Code Collaboration</p>
+            </div>
+
+            <!-- Node.js -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-node-js"></i>
+                </div>
+                <h3>Node.js</h3>
+                <p>Runtime Environment</p>
+            </div>
+
+            <!-- WordPress -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-wordpress"></i>
+                </div>
+                <h3>WordPress</h3>
+                <p>CMS Solutions</p>
+            </div>
+
+            <!-- Figma -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-figma"></i>
+                </div>
+                <h3>Figma</h3>
+                <p>UI/UX Design</p>
+            </div>
+
+            <!-- NPM -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-npm"></i>
+                </div>
+                <h3>NPM</h3>
+                <p>Package Manager</p>
+            </div>
+
+            <!-- VS Code -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>VS Code</h3>
+                <p>Code Editor</p>
+            </div>
+
+            <!-- Postman -->
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3>Postman</h3>
+                <p>API Testing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image-wrapper">
+                    <img src="project1.png" alt="Submission Management System - Panel Assignment" class="project-img">
+                    <div class="project-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Submission Management System</h3>
+                    <p>A comprehensive web-based system for managing graduate program submissions, defense scheduling, panel assignments, and committee coordination at DNSC Institute of Advanced Studies.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> View Demo</a>
+                        <a href="#"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-wrapper">
+                    <img src="project2.png" alt="Submission Management System - Summary Reports" class="project-img">
+                    <div class="project-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Analytics Dashboard</h3>
+                    <p>Real-time reporting and analytics dashboard featuring submission tracking, activity trends, status breakdowns, and comprehensive insights for program administrators and stakeholders.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Chart.js</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">AJAX</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> View Demo</a>
+                        <a href="#"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-wrapper">
+                    <img src="project3.png" alt="Submission Management System - Payment Upload" class="project-img">
+                    <div class="project-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Payment Processing Module</h3>
+                    <p>Secure payment receipt upload and verification system with timeline tracking, reference number management, and administrative approval workflow for student submissions.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">File Upload</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Validation</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> View Demo</a>
+                        <a href="#"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-content">
+            <div class="education-card">
+                <h3>Bachelor of Science in Information Systems</h3>
+                <p class="institution">Davao del Norte State College</p>
+                <p class="year">2022 - 2026 (Expected)</p>
+                <p style="margin-top: 1rem; color: var(--text-light);">
+                    Pursuing a comprehensive education in information systems, covering software development, 
+                    database management, systems analysis, and project management. Actively participating in 
+                    coding workshops and tech-related activities to enhance practical skills.
+                </p>
+            </div>
+
+            <div class="education-card" style="margin-top: 2rem;">
+                <h3>Secondary Education</h3>
+                <p class="institution">Alejal National High School</p>
+                <p class="year">2014 - 2020</p>
+                <p style="margin-top: 1rem; color: var(--text-light);">
+                    Completed secondary education with a focus on academic excellence and personal development. 
+                    Built a strong foundation in mathematics, science, and technology that prepared for higher 
+                    education in information systems.
+                </p>
+            </div>
+
+            <div class="education-card" style="margin-top: 2rem;">
+                <h3>Elementary Education</h3>
+                <p class="institution">New Camiling Elementary School</p>
+                <p class="year">2013 - 2014</p>
+                <p style="margin-top: 1rem; color: var(--text-light);">
+                    Completed elementary education, developing fundamental skills in reading, mathematics, and 
+                    critical thinking. Established early interest in technology and problem-solving.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="experience-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="experience-content experience-right">
+                    <div class="experience-header">
+                        <h3 class="experience-title">On-the-Job Training Intern</h3>
+                        <p class="experience-company">Municipality of Carmen - Accounting Department</p>
+                        <div class="experience-duration">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>June 2025 - August 2025</span>
+                        </div>
+                        <div class="experience-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Carmen, Davao del Norte, Philippines</span>
+                        </div>
+                    </div>
+                    <p class="experience-description">
+                        Completed intensive on-the-job training at the Municipality of Carmen's Accounting Department, 
+                        gaining hands-on experience in government financial operations, budget management, and accounting 
+                        systems. Contributed to daily operations while developing practical skills in financial documentation 
+                        and data management.
+                    </p>
+                    <ul class="experience-responsibilities">
+                        <li>Assisted in processing financial documents and maintaining accurate accounting records</li>
+                        <li>Supported budget preparation and monitoring activities for various municipal projects</li>
+                        <li>Helped organize and digitize financial reports using spreadsheet applications</li>
+                        <li>Participated in the verification and reconciliation of financial transactions</li>
+                        <li>Collaborated with accounting staff to ensure compliance with government accounting standards</li>
+                        <li>Gained exposure to government financial management systems and procedures</li>
+                    </ul>
+                    <div class="experience-skills">
+                        <span class="experience-skill-tag">Financial Management</span>
+                        <span class="experience-skill-tag">Data Entry</span>
+                        <span class="experience-skill-tag">Excel</span>
+                        <span class="experience-skill-tag">Documentation</span>
+                        <span class="experience-skill-tag">Accounting Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates">
+        <h2 class="section-title">Certificates & Achievements</h2>
+        <div class="certificates-grid">
+            <!-- Certificate 1 - Capstone Project -->
+            <div class="certificate-card">
+                <div class="certificate-image-container">
+                    <img src="Org cert.jpg" alt="Capstone Project Exhibit 2026 Certificate" class="certificate-image">
+                    <div class="certificate-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="certificate-content">
+                    <h3>Capstone Project Exhibit 2026</h3>
+                    <p class="certificate-issuer">Davao del Norte State College</p>
+                    <p class="certificate-date">
+                        <i class="fas fa-calendar-alt"></i> June 1, 2026
+                    </p>
+                    <p class="certificate-description">
+                        Certificate of Participation for presenting "A Web Based Submission Management System for Graduate Program in Davao del Norte State College" at the BSIT and BSIS Capstone Project Exhibit 2026.
+                    </p>
+                    <div class="certificate-skills">
+                        <span class="tech-tag">Web Development</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Database Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate 2 - Python Essentials 1 -->
+            <div class="certificate-card">
+                <div class="certificate-image-container">
+                    <img src="py1.jpg" alt="Python Essentials 1 Certificate" class="certificate-image">
+                    <div class="certificate-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="certificate-content">
+                    <h3>Python Essentials 1</h3>
+                    <p class="certificate-issuer">Cisco Networking Academy</p>
+                    <p class="certificate-date">
+                        <i class="fas fa-calendar-alt"></i> October 18, 2025
+                    </p>
+                    <p class="certificate-description">
+                        Successfully completed Python Essentials 1 course offered by Networking Academy through the Cisco Networking Academy program, mastering fundamental Python programming concepts.
+                    </p>
+                    <div class="certificate-skills">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Programming</span>
+                        <span class="tech-tag">Cisco</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate 3 - Python Essentials 2 -->
+            <div class="certificate-card">
+                <div class="certificate-image-container">
+                    <img src="py2.jpg" alt="Python Essentials 2 Certificate" class="certificate-image">
+                    <div class="certificate-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="certificate-content">
+                    <h3>Python Essentials 2</h3>
+                    <p class="certificate-issuer">Cisco Networking Academy</p>
+                    <p class="certificate-date">
+                        <i class="fas fa-calendar-alt"></i> December 6, 2025
+                    </p>
+                    <p class="certificate-description">
+                        Successfully completed Python Essentials 2 course offered by Networking Academy through the Cisco Networking Academy program, advancing skills in object-oriented programming and advanced Python techniques.
+                    </p>
+                    <div class="certificate-skills">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">OOP</span>
+                        <span class="tech-tag">Advanced Programming</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong><br>
+                        <a href="mailto:jamelo.markglen@dnsc.edu.ph">jamelo.markglen@dnsc.edu.ph</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Phone</strong><br>
+                        <a href="tel:09638387313">09638387313</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Location</strong><br>
+                        Carmen, Davao del Norte, Philippines
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Markglen Jamelo. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Built with passion and dedication</p>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            
+            // Update icon
+            if (html.classList.contains('dark')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Dynamic Text Rotation
+        const dynamicTextElement = document.querySelector(".dynamic-text");
+        if (dynamicTextElement) {
+            const textArray = dynamicTextElement.querySelectorAll("span");
+            let currentIndex = 0;
+
+            function rotateText() {
+                textArray[currentIndex].classList.remove("active");
+                currentIndex = (currentIndex + 1) % textArray.length;
+                textArray[currentIndex].classList.add("active");
+            }
+
+            setInterval(rotateText, 3000);
+        }
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Form submission (placeholder - you'll need to implement backend)
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! This is a demo form. Please email me directly at jamelo.markglen@dnsc.edu.ph');
+            contactForm.reset();
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
